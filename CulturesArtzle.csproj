@@ -1,0 +1,688 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E74373AC-EE01-4C01-8F62-C6980CC7123E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>UI_Design</RootNamespace>
+    <AssemblyName>UI_Design</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.20.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Protobuf.3.20.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.2.16.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>packages\K4os.Compression.LZ4.1.2.16\lib\net46\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.2.16.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>packages\K4os.Compression.LZ4.Streams.1.2.16\lib\net46\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.7.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>packages\K4os.Hash.xxHash.1.0.7\lib\net46\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.29.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data.EntityFramework, Version=8.0.29.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Web, Version=8.0.29.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlXml" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Ubiety.Dns.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>packages\MySql.Data.8.0.29\lib\net452\Ubiety.Dns.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="ZstdNet, Version=1.4.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>packages\MySql.Data.8.0.29\lib\net452\ZstdNet.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="start_game_h.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="start_game_h.Designer.cs">
+      <DependentUpon>start_game_h.cs</DependentUpon>
+    </Compile>
+    <Compile Include="start_game_n.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="start_game_n.Designer.cs">
+      <DependentUpon>start_game_n.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sign_up.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sign_up.Designer.cs">
+      <DependentUpon>sign_up.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sign_in.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sign_in.Designer.cs">
+      <DependentUpon>sign_in.cs</DependentUpon>
+    </Compile>
+    <Compile Include="score.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="score.Designer.cs">
+      <DependentUpon>score.cs</DependentUpon>
+    </Compile>
+    <Compile Include="scoreboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="scoreboard.Designer.cs">
+      <DependentUpon>scoreboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="start_game.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="start_game.Designer.cs">
+      <DependentUpon>start_game.cs</DependentUpon>
+    </Compile>
+    <Compile Include="select_lv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="select_lv.Designer.cs">
+      <DependentUpon>select_lv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mainmenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mainmenu.Designer.cs">
+      <DependentUpon>Mainmenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="h2p.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="h2p.Designer.cs">
+      <DependentUpon>h2p.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="sign_up.resx">
+      <DependentUpon>sign_up.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sign_in.resx">
+      <DependentUpon>sign_in.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="score.resx">
+      <DependentUpon>score.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="scoreboard.resx">
+      <DependentUpon>scoreboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="start_game.resx">
+      <DependentUpon>start_game.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="select_lv.resx">
+      <DependentUpon>select_lv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="h2p.resx">
+      <DependentUpon>h2p.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mainmenu.resx">
+      <DependentUpon>Mainmenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="start_game_h.resx">
+      <DependentUpon>start_game_h.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="start_game_n.resx">
+      <DependentUpon>start_game_n.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="DTSPipeline">
+      <Guid>{36386939-825E-4817-ADEF-9FD04249EE91}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="OleDbSrc">
+      <Guid>{B67CDFA6-A961-4F6C-A115-04FB669C6C5B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="TxBDD">
+      <Guid>{5A36ABF5-2061-4BF2-A5DC-9DF79DB90209}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="TxDataConvert">
+      <Guid>{DF745EC1-ACC2-400D-85B5-6BEE83C23375}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="TxDerived">
+      <Guid>{ACE4123F-ADA7-458D-A8BD-DF0AE00D3040}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="TxLookup">
+      <Guid>{6AE04ECF-C9EC-49C9-B315-3AF0AA08AC9C}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="TxSplit">
+      <Guid>{DD742254-E6FC-4586-BE59-06F5DEB52CCC}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Untitled-1_01.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Untitled-1_02.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Untitled-1_03.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Untitled-1_04.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Untitled-1_05.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Untitled-1_06.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Untitled-1_07.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Untitled-1_08.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Untitled-1_09.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\ref_songpra.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\songpra_01.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\songpra_02.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\songpra_03.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\songpra_04.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\songpra_05.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\songpra_06.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\songpra_07.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\songpra_08.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\songpra_09.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\food_01.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\food_02.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\food_03.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\food_04.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\food_05.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\food_06.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\food_07.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\food_08.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\food_09.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\food_10.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\food_11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\food_12.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\food_13.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\food_14.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\food_15.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\food_16.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\food_17.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\food_18.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\food_19.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\food_20.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\food_21.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\food_22.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\food_23.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\food_24.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\food_25.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\ref_food.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\ref_sand.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\sand_01.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\sand_02.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\sand_03.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\sand_04.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\sand_05.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\sand_06.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\sand_07.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\sand_08.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\sand_09.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\sand_10.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\sand_11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\sand_12.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\sand_13.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\sand_14.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\sand_15.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\sand_16.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\ref_TaaChone.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\loy_01.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\loy_02.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\loy_03.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\loy_04.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\loy_05.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\loy_06.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\loy_07.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\loy_08.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\loy_09.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\loy_10.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\loy_11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\loy_12.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\loy_13.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\loy_14.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\loy_15.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\loy_16.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\ref.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Chome_01.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Chome_02.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Chome_03.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Chome_04.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Chome_05.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Chome_06.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Chome_07.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Chome_08.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Chome_09.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Chome_10.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Chome_11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Chome_12.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Chome_13.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Chome_14.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Chome_15.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Chome_16.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Chome_17.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Chome_18.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Chome_19.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Chome_20.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Chome_21.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Chome_22.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Chome_23.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Chome_24.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Chome_25.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Khon_01.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Khon_02.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Khon_03.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Khon_04.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Khon_05.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Khon_06.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Khon_07.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Khon_08.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Khon_09.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Khon_10.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Khon_11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Khon_12.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Khon_13.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Khon_14.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Khon_15.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Khon_16.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\ref_Chome.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\ref_khon.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
